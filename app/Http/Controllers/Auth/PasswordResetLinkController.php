@@ -25,6 +25,7 @@ class PasswordResetLinkController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        $sentStatus = 'passwords.sent';
         $request->validate([
             'email' => ['required', 'email'],
         ]);
@@ -35,6 +36,9 @@ class PasswordResetLinkController extends Controller
         $status = Password::sendResetLink(
             $request->only('email')
         );
+        if ($status == $sentStatus ) {
+            toastr('Reset link has been sent to your mail');
+        }
 
         return $status == Password::RESET_LINK_SENT
                     ? back()->with('status', __($status))

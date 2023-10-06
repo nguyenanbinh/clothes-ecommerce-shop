@@ -8,6 +8,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\View\View;
 
 class AuthenticatedSessionController extends Controller
@@ -34,6 +35,7 @@ class AuthenticatedSessionController extends Controller
         }elseif($request->user()->role === 'vendor'){
             return redirect()->intended('vendor/dashboard');
         }
+
         return redirect()->intended(RouteServiceProvider::HOME);
     }
 
@@ -56,4 +58,5 @@ class AuthenticatedSessionController extends Controller
         }
         return redirect('/');
     }
+
 }

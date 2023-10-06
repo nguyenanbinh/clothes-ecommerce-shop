@@ -27,8 +27,6 @@ class ProfileController extends Controller
 
             return redirect()->back()->withErrors($validator)->withInput();
         } else {
-
-
             if ($request->hasFile('image')) {
                 if (File::exists(public_path($user->image))) {
                     File::delete(public_path($user->image));

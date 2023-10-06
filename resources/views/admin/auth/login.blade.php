@@ -11,7 +11,7 @@
 
     <!-- CSS Libraries -->
     <link rel="stylesheet" href="{{asset('backend/assets/modules/bootstrap-social/bootstrap-social.css')}}">
-
+    <link rel="stylesheet" href="{{asset('backend/assets/css/toastr.min.css')}}">
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{asset('backend/assets/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('backend/assets/css/components.css')}}">
@@ -99,7 +99,7 @@
 <script src="{{asset('backend/assets/modules/nicescroll/jquery.nicescroll.min.js')}}"></script>
 <script src="{{asset('backend/assets/modules/moment.min.js')}}"></script>
 <script src="{{asset('backend/assets/js/stisla.js')}}"></script>
-
+<script src="{{asset('backend/assets/js/toastr.min.js')}}"></script>
 <!-- JS Libraies -->
 
 <!-- Page Specific JS File -->
@@ -107,5 +107,13 @@
 <!-- Template JS File -->
 <script src="{{asset('backend/assets/js/scripts.js')}}"></script>
 <script src="{{asset('backend/assets/js/custom.js')}}"></script>
+
+<script>
+    @if ($errors->any())
+    @foreach ($errors->all() as $error)
+    toastr.error("{{$error}}")
+    @endforeach
+    @endif
+</script>
 </body>
 </html>
