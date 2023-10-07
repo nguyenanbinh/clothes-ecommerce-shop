@@ -54,7 +54,7 @@ class AuthenticatedSessionController extends Controller
         if($role === 'admin'){
             return redirect()->route('admin.login');
         }elseif($role === 'vendor'){
-            return redirect()->route('');
+            return redirect()->route('login');
         }
         return redirect('/');
     }

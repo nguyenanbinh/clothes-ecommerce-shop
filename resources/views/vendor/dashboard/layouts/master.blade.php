@@ -26,10 +26,9 @@
     <link rel="stylesheet" href="{{asset('frontend/css/ranger_style.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/jquery.classycountdown.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/venobox.min.css')}}">
-    <link rel="stylesheet" href="{{asset('frontend/css/toastr.min.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/js/toastr.min.js')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/responsive.css')}}">
-    @stack('style')
 {{--    @if($settings->layout === 'RTL')--}}
 {{--        <link rel="stylesheet" href="{{asset('frontend/css/rtl.css')}}">--}}
 {{--    @endif--}}
@@ -109,7 +108,7 @@
 <!--classycountdown js-->
 <script src="{{asset('frontend/js/jquery.classycountdown.js')}}"></script>
 <script src="{{asset('frontend/js/toastr.min.js')}}"></script>
-@stack('js')
+
 
 <!--main/custom js-->
 <script src="{{asset('frontend/js/main.js')}}"></script>
