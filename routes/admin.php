@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\AdminController;
+use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\SliderController;
 use Illuminate\Support\Facades\Route;
@@ -13,5 +14,9 @@ Route::post('profile/update', [ProfileController::class, 'updateProfile'])->name
 Route::post('profile/update/password', [ProfileController::class, 'updatePassword'])->name('password.update');
 
 /** Slider Route */
-Route::resource('slider', SliderController::class);
+Route::resource('slider', SliderController::class)->except('show');
+
+/** Category Route */
+Route::resource('category', CategoryController::class)->except('show');
+Route::put('change-status', [CategoryController::class, 'changeStatus'])->name('category.change-status');
 
