@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\ChildCategoryController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\SliderController;
+use App\Http\Controllers\Backend\SubCategoryController;
 use Illuminate\Support\Facades\Route;
 
 /** Admin Routes */
@@ -17,6 +19,16 @@ Route::post('profile/update/password', [ProfileController::class, 'updatePasswor
 Route::resource('slider', SliderController::class)->except('show');
 
 /** Category Route */
-Route::resource('category', CategoryController::class)->except('show');
 Route::put('change-status', [CategoryController::class, 'changeStatus'])->name('category.change-status');
+Route::resource('category', CategoryController::class)->except('show');
+
+/** Sub Category Route */
+Route::put('subcategory/change-status', [SubCategoryController::class, 'changeStatus'])->name('sub-category.change-status');
+Route::resource('sub-category', SubCategoryController::class)->except('show');
+
+/** Child Category Route */
+Route::put('child-category/change-status', [ChildCategoryController::class, 'changeStatus'])->name('child-category.change-status');
+Route::resource('child-category', ChildCategoryController::class)->except('show');
+Route::get('get-subcategories', [ChildCategoryController::class, 'getSubCategories'])->name('get-subcategories');
+
 
