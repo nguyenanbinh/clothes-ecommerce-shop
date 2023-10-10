@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Category\StoreCategoryRequest;
 use App\Http\Requests\Category\UpdateCategoryRequest;
 use App\Models\Category;
+use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -79,7 +80,12 @@ class CategoryController extends Controller
     public function destroy(string $id)
     {
         $category = Category::findOrFail($id);
+        $subCategory = SubCategory::where('category_id', $category->id)->count();
 
+        if ($subCategory > 0) {
+            return response(['status' => 'error', 'message' => 'This items contain,
+            sub items for delete this you have to delete the sub items first!']);
+        }
         $category->delete();
 
         return response(['status' => 'success', 'Deleted Successfully!']);
