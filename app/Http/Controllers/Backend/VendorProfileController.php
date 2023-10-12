@@ -19,7 +19,7 @@ class VendorProfileController extends Controller
      */
     public function edit(Request $request): View
     {
-        return view('frontend.dashboard.profile', [
+        return view('vendor.dashboard.profile', [
             'user' => $request->user(),
         ]);
     }

@@ -31,9 +31,12 @@
     <link rel="stylesheet" href="{{asset('frontend/css/ranger_style.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/jquery.classycountdown.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/venobox.min.css')}}">
-    <link rel="stylesheet" href="{{asset('frontend/js/toastr.min.js')}}">
+    <link rel="stylesheet" href="{{asset('frontend/css/toastr.min.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/responsive.css')}}">
+    <link rel="stylesheet" href="{{asset('backend/assets/css/datatables.min.css')}}">
+    <link rel="stylesheet" href="{{asset('backend/assets/modules/bootstrap-daterangepicker/daterangepicker.css')}}">
+    <link rel="stylesheet" href="{{asset('backend/assets/modules/summernote/summernote-bs4.css')}}">
 {{--    @if($settings->layout === 'RTL')--}}
 {{--        <link rel="stylesheet" href="{{asset('frontend/css/rtl.css')}}">--}}
 {{--    @endif--}}
@@ -113,8 +116,10 @@
 <!--classycountdown js-->
 <script src="{{asset('frontend/js/jquery.classycountdown.js')}}"></script>
 <script src="{{asset('frontend/js/toastr.min.js')}}"></script>
-
-
+<script src="{{asset('backend/assets/js/datatables.min.js')}}"></script>
+<script src="{{asset('backend/assets/modules/moment.min.js')}}"></script>
+<script src="{{asset('backend/assets/modules/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
+<script src="{{asset('backend/assets/modules/summernote/summernote-bs4.js')}}"></script>
 <!--main/custom js-->
 <script src="{{asset('frontend/js/main.js')}}"></script>
 
@@ -126,7 +131,32 @@
     @endforeach
     @endif
 </script>
+<!-- date picker -->
+<script>
+    /**  summernote **/
+    $('.summernote').summernote({
+        height:150
+    });
 
+</script>
+<script>
+    $('.datepicker').daterangepicker({
+        locale: {
+            format: 'YYYY-MM-DD'
+        },
+        singleDatePicker: true
+    });
+</script>
+
+<script>
+    $(document).ready(function(){
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    });
+</script>
 @stack('scripts')
 </body>
 

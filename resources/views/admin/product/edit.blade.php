@@ -21,18 +21,18 @@
                                 @csrf
                                 @method('PUT')
                                 <div class="form-group">
-                                    <label>Preview</label>
+                                    <label>Image</label>
                                     <br>
                                     <img src="{{asset($product->thumb_image)}}" style="width:200px" alt="">
                                 </div>
-                                <div class="form-group">
-                                    <label>Image</label>
-                                    <input type="file" class="form-control" name="image">
-                                </div>
+{{--                                <div class="form-group">--}}
+{{--                                    <label>Image</label>--}}
+{{--                                    <input type="file" class="form-control" name="image">--}}
+{{--                                </div>--}}
 
                                 <div class="form-group">
                                     <label>Name</label>
-                                    <input type="text" class="form-control" name="name" value="{{$product->name}}">
+                                    <input type="text" class="form-control" name="name" value="{{$product->name}}" readonly>
                                 </div>
 
                                 <div class="row">
@@ -84,54 +84,54 @@
 
                                 <div class="form-group">
                                     <label>SKU</label>
-                                    <input type="text" class="form-control" name="sku" value="{{$product->sku}}">
+                                    <input type="text" class="form-control" name="sku" value="{{$product->sku}}" readonly>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Price</label>
-                                    <input type="text" class="form-control" name="price" value="{{$product->price}}">
+                                    <input type="text" class="form-control" name="price" value="{{$product->price}}" readonly>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Offer Price</label>
-                                    <input type="text" class="form-control" name="offer_price" value="{{$product->offer_price}}">
+                                    <input type="text" class="form-control" name="offer_price" value="{{$product->offer_price}}" readonly>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Offer Start Date</label>
-                                            <input type="text" class="form-control datepicker" name="offer_start_date" value="{{$product->offer_start_date}}">
+                                            <input type="text" class="form-control datepicker" name="offer_start_date" value="{{$product->offer_start_date}}" readonly>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Offer End Date</label>
-                                            <input type="text" class="form-control datepicker" name="offer_end_date" value="{{$product->offer_end_date}}">
+                                            <input type="text" class="form-control datepicker" name="offer_end_date" value="{{$product->offer_end_date}}" readonly>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Stock Quantity</label>
-                                    <input type="number" min="0" class="form-control" name="qty" value="{{$product->qty}}">
+                                    <input type="number" min="0" class="form-control" name="qty" value="{{$product->qty}}" readonly>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Video Link</label>
-                                    <input type="text" class="form-control" name="video_link" value="{{$product->video_link}}">
+                                    <input type="text" class="form-control" name="video_link" value="{{$product->video_link}}" readonly>
                                 </div>
 
 
                                 <div class="form-group">
                                     <label>Short Description</label>
-                                    <textarea name="short_description" class="form-control">{!! $product->short_description !!}</textarea>
+                                    <textarea name="short_description" class="form-control" readonly>{!! $product->short_description !!}</textarea>
                                 </div>
 
 
                                 <div class="form-group">
                                     <label>Long Description</label>
-                                    <textarea name="long_description" class="form-control summernote">{!! $product->long_description !!}</textarea>
+                                    <textarea name="long_description" class="form-control" readonly> {!! $product->long_description !!}</textarea>
                                 </div>
 
                                 <div class="form-group">
@@ -147,12 +147,12 @@
 
                                 <div class="form-group">
                                     <label>Seo Title</label>
-                                    <input type="text" class="form-control" name="seo_title" value="{{$product->seo_title}}">
+                                    <input type="text" class="form-control" name="seo_title" value="{{$product->seo_title}}" readonly>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Seo Description</label>
-                                    <textarea name="seo_description" class="form-control">{!!$product->seo_description!!}</textarea>
+                                    <textarea name="seo_description" class="form-control" readonly>{!!$product->seo_description!!}</textarea>
                                 </div>
 
                                 <div class="form-group">

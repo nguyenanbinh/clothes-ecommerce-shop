@@ -11,12 +11,6 @@ $currentRoute = \Illuminate\Support\Facades\Route::currentRouteName();
         <li><a class="{{setActive(['user.dashboard'])}}" href="{{route('user.dashboard')}}"><i class="fas fa-tachometer"></i>Dashboard</a></li>
 
         <li><a class="" href="{{url('/')}}"><i class="fas fa-home"></i>Go To Home Page</a></li>
-
-        @if (auth()->user()->role === 'vendor')
-            <li><a class="{{setActive(['vendor.dashboard'])}}" href="{{route('vendor.dashboard')}}"><i class="fas fa-tachometer"></i>Go to Vendor Dashboard</a></li>
-        @endif
-
-
         <li><a href="#"><i class="fas fa-list-ul"></i> Orders</a></li>
         <li><a href="#"><i class="far fa-star"></i> Reviews</a></li>
 

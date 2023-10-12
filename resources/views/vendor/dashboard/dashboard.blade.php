@@ -1,65 +1,102 @@
-@extends('frontend.dashboard.layouts.master')
-
+@extends('vendor.layouts.master')
 @section('title')
     {{$settings->site_name ?? ''}} || Dashboard
 @endsection
-
 @section('content')
     <section id="wsus__dashboard">
-
         <div class="container-fluid">
-            @include('frontend.dashboard.layouts.sidebar')
+            @include('vendor.layouts.sidebar')
             <div class="row">
                 <div class="col-xl-9 col-xxl-10 col-lg-9 ms-auto">
-                    <h3>User Dashboard</h3>
-                    <br>
                     <div class="dashboard_content">
                         <div class="wsus__dashboard">
                             <div class="row">
-                                <div class="col-xl-4 col-6 col-md-4">
-                                    <a class="wsus__dashboard_item red" href="#" >
-                                        <i class="fas fa-cart-plus"></i>
-                                        <p>Total Order</p>
-                                        <h4 style="color:#ffff">0</h4>
-                                    </a>
-                                </div>
-                                <div class="col-xl-4 col-6 col-md-4">
-                                    <a class="wsus__dashboard_item green" href="dsahboard_download.html">
-                                        <i class="fas fa-cart-plus"></i>
-                                        <p>Pending Orders</p>
-                                        <h4 style="color:#ffff">0</h4>
-                                    </a>
-                                </div>
-                                <div class="col-xl-4 col-6 col-md-4">
-                                    <a class="wsus__dashboard_item sky" href="dsahboard_review.html">
-                                        <i class="fas fa-cart-plus"></i>
-                                        <p>Complete Orders</p>
-                                        <h4 style="color:#ffff">0</h4>
-                                    </a>
-                                </div>
-                                <div class="col-xl-4 col-6 col-md-4">
+                                <div class="col-xl-2 col-6 col-md-4">
                                     <a class="wsus__dashboard_item blue" href="#">
-                                        <i class="fas fa-star"></i>
-                                        <p>Reviews</p>
+                                        <i class="fas fa-cart-plus"></i>
+                                        <p>Today's Orders</p>
+                                        <h4 style="color:#ffff">0</h4>
+                                    </a>
+                                </div>
+                                <div class="col-xl-2 col-6 col-md-4">
+                                    <a class="wsus__dashboard_item blue" href="#">
+                                        <i class="fas fa-cart-plus"></i>
+                                        <p>Td's Pending Orders</p>
+                                        <h4 style="color:#ffff">0</h4>
+                                    </a>
+                                </div>
+                                <div class="col-xl-2 col-6 col-md-4">
+                                    <a class="wsus__dashboard_item blue" href="#">
+                                        <i class="fas fa-cart-plus"></i>
+                                        <p>Total Orders</p>
+                                        <h4 style="color:#ffff">0</h4>
+                                    </a>
+                                </div>
+                                <div class="col-xl-2 col-6 col-md-4">
+                                    <a class="wsus__dashboard_item blue" href="#">
+                                        <i class="fas fa-cart-plus"></i>
+                                        <p>Total Pending Orders</p>
+                                        <h4 style="color:#ffff">0</h4>
+                                    </a>
+                                </div>
+                                <div class="col-xl-2 col-6 col-md-4">
+                                    <a class="wsus__dashboard_item blue" href="#">
+                                        <i class="fas fa-cart-plus"></i>
+                                        <p>Completed Orders</p>
+                                        <h4 style="color:#ffff">0</h4>
+                                    </a>
+                                </div>
+                                <div class="col-xl-2 col-6 col-md-4">
+                                    <a class="wsus__dashboard_item blue" href="#">
+                                        <i class="fas fa-cart-plus"></i>
+                                        <p>Total Products</p>
+                                        <h4 style="color:#ffff">0</h4>
+                                    </a>
+                                </div>
+                                <div class="col-xl-2 col-6 col-md-4">
+                                    <a class="wsus__dashboard_item blue" href="javascript:;">
+                                        <i class="fas fa-cart-plus"></i>
+                                        <p>Todays Earnings</p>
+                                        <h4 style="color:#ffff">0</h4>
+                                    </a>
+                                </div>
+                                <div class="col-xl-2 col-6 col-md-4">
+                                    <a class="wsus__dashboard_item blue" href="javascript:;">
+                                        <i class="fas fa-cart-plus"></i>
+                                        <p>This Months Earnings</p>
+                                        <h4 style="color:#ffff">0</h4>
+                                    </a>
+                                </div>
+                                <div class="col-xl-2 col-6 col-md-4">
+                                    <a class="wsus__dashboard_item blue" href="javascript:;">
+                                        <i class="fas fa-cart-plus"></i>
+                                        <p>This Year Earnings</p>
                                         <h4 style="color:#ffff">0</h4>
                                     </a>
                                 </div>
 
-                                <div class="col-xl-4 col-6 col-md-4">
-                                    <a class="wsus__dashboard_item purple" href="#">
-                                        <i class="fas fa-star"></i>
-                                        <p>Wishlist</p>
+                                <div class="col-xl-2 col-6 col-md-4">
+                                    <a class="wsus__dashboard_item blue" href="javascript:;">
+                                        <i class="fas fa-cart-plus"></i>
+                                        <p>Total Earnings</p>
                                         <h4 style="color:#ffff">0</h4>
                                     </a>
                                 </div>
-
-                                <div class="col-xl-4 col-6 col-md-4">
-                                    <a class="wsus__dashboard_item orange" href="#">
+                                <div class="col-xl-2 col-6 col-md-4">
+                                    <a class="wsus__dashboard_item blue" href="#">
+                                        <i class="fas fa-cart-plus"></i>
+                                        <p>Total Reviews</p>
+                                        <h4 style="color:#ffff">0</h4>
+                                    </a>
+                                </div>
+                                <div class="col-xl-2 col-6 col-md-4">
+                                    <a class="wsus__dashboard_item blue" href="#">
                                         <i class="fas fa-user-shield"></i>
-                                        <p>profile</p>
+                                        <p>shop profile</p>
                                         <h4 style="color:#ffff">-</h4>
                                     </a>
                                 </div>
+
                             </div>
 
                         </div>
