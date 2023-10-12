@@ -23,28 +23,28 @@ class VendorProductDataTable extends DataTable
      */
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
-//        <li><a class="dropdown-item has-icon" href="'.route('vendor.products-image-gallery.index', ['product' => $query->id]).'"> Image Gallery</a></li>
-//                    <li><a class="dropdown-item has-icon" href="'.route('vendor.products-variant.index', ['product' => $query->id]).'"> Variants</a></li>
+//        <li><a class="dropdown-item has-icon" href="' . route('vendor.products-variant.index', ['product' => $query->id]) . '"> Variants</a></li>
+
         return (new EloquentDataTable($query))
-            ->addColumn('action', function($query){
-                $editBtn = "<a href='".route('vendor.products.edit', $query->id)."' class='btn btn-primary'><i class='far fa-edit'></i></a>";
-                $deleteBtn = "<a href='".route('vendor.products.destroy', $query->id)."' class='btn btn-danger delete-item' ><i class='far fa-trash-alt'></i></a>";
+            ->addColumn('action', function ($query) {
+                $editBtn = "<a href='" . route('vendor.products.edit', $query->id) . "' class='btn btn-primary'><i class='far fa-edit'></i></a>";
+                $deleteBtn = "<a href='" . route('vendor.products.destroy', $query->id) . "' class='btn btn-danger delete-item' ><i class='far fa-trash-alt'></i></a>";
 
                 $moreBtn = '<div class="btn-group dropstart" style="margin-left:3px">
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="fas fa-cog"></i>
                 </button>
                 <ul class="dropdown-menu">
-
+                    <li><a class="dropdown-item has-icon" href="' . route('vendor.products-image-gallery.index', ['product' => $query->id]) . '"> Image Gallery</a></li>
                 </ul>
             </div>';
 
-                return $editBtn.$deleteBtn.$moreBtn;
+                return $editBtn . $deleteBtn . $moreBtn;
             })
-            ->addColumn('image', function($query){
-                return "<img width='70px' src='".asset($query->thumb_image)."' ></img>";
+            ->addColumn('image', function ($query) {
+                return "<img width='70px' src='" . asset($query->thumb_image) . "' ></img>";
             })
-            ->addColumn('type', function($query){
+            ->addColumn('type', function ($query) {
                 switch ($query->product_type) {
                     case 'new_arrival':
                         return '<i class="badge bg-success">New Arrival</i>';
@@ -65,21 +65,21 @@ class VendorProductDataTable extends DataTable
                         break;
                 }
             })
-            ->addColumn('status', function($query){
-                if($query->status == 1){
+            ->addColumn('status', function ($query) {
+                if ($query->status == 1) {
 
                     $button = '<div class="form-check form-switch">
-                <input checked class="form-check-input change-status" type="checkbox" id="flexSwitchCheckDefault" data-id="'.$query->id.'"></div>';
-                }else {
+                <input checked class="form-check-input change-status" type="checkbox" id="flexSwitchCheckDefault" data-id="' . $query->id . '"></div>';
+                } else {
                     $button = '<div class="form-check form-switch">
-                <input class="form-check-input change-status" type="checkbox" id="flexSwitchCheckDefault" data-id="'.$query->id.'"></div>';
+                <input class="form-check-input change-status" type="checkbox" id="flexSwitchCheckDefault" data-id="' . $query->id . '"></div>';
                 }
                 return $button;
             })
-            ->addColumn('approved', function($query){
-                if($query->is_approved === 1){
+            ->addColumn('approved', function ($query) {
+                if ($query->is_approved === 1) {
                     return '<i class="badge bg-success">Approved</i>';
-                }else {
+                } else {
                     return '<i class="badge bg-warning">Pending</i>';
                 }
             })
@@ -101,20 +101,20 @@ class VendorProductDataTable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-                    ->setTableId('vendorproduct-table')
-                    ->columns($this->getColumns())
-                    ->minifiedAjax()
-                    //->dom('Bfrtip')
-                    ->orderBy(1)
-                    ->selectStyleSingle()
-                    ->buttons([
-                        Button::make('excel'),
-                        Button::make('csv'),
-                        Button::make('pdf'),
-                        Button::make('print'),
-                        Button::make('reset'),
-                        Button::make('reload')
-                    ]);
+            ->setTableId('vendorproduct-table')
+            ->columns($this->getColumns())
+            ->minifiedAjax()
+            //->dom('Bfrtip')
+            ->orderBy(1)
+            ->selectStyleSingle()
+            ->buttons([
+                Button::make('excel'),
+                Button::make('csv'),
+                Button::make('pdf'),
+                Button::make('print'),
+                Button::make('reset'),
+                Button::make('reload')
+            ]);
     }
 
     /**

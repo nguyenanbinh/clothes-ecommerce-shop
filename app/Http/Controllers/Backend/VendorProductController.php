@@ -153,7 +153,7 @@ class VendorProductController extends Controller
     }
 
     /**
-     * Get all product sub categores
+     * Get all product sub categories
      */
 
     public function getSubCategories(Request $request)
