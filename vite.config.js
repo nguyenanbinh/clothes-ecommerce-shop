@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 
+const host = '0.0.0.0';
 export default defineConfig({
     plugins: [
         laravel({
@@ -11,8 +12,12 @@ export default defineConfig({
             refresh: true,
         }),
     ],
-        server: {
-            host: '0.0.0.0',
-            hmr: { host: '0.0.0.0' }
-    }
+    server: {
+        host ,
+        hmr: { host },
+        https: {
+            key: fs.readFileSync(`/path/to/${host}.key`),
+            cert: fs.readFileSync(`/path/to/${host}.crt`),
+        },
+    },
 });

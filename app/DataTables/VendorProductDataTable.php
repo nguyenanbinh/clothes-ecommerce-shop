@@ -23,8 +23,6 @@ class VendorProductDataTable extends DataTable
      */
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
-//        <li><a class="dropdown-item has-icon" href="' . route('vendor.products-variant.index', ['product' => $query->id]) . '"> Variants</a></li>
-
         return (new EloquentDataTable($query))
             ->addColumn('action', function ($query) {
                 $editBtn = "<a href='" . route('vendor.products.edit', $query->id) . "' class='btn btn-primary'><i class='far fa-edit'></i></a>";
@@ -36,6 +34,7 @@ class VendorProductDataTable extends DataTable
                 </button>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item has-icon" href="' . route('vendor.products-image-gallery.index', ['product' => $query->id]) . '"> Image Gallery</a></li>
+                    <li><a class="dropdown-item has-icon" href="' . route('vendor.products-variant.index', ['product' => $query->id]) . '"> Variants</a></li>
                 </ul>
             </div>';
 
