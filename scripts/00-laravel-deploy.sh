@@ -16,5 +16,5 @@ echo "Running migrations..."
 php artisan migrate --force
 
 #echo "Running vite..."
-npm install
-npm run build
+#npm install
+#npm run build
