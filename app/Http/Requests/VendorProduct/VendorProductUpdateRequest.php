@@ -3,7 +3,7 @@
 namespace App\Http\Requests\VendorProduct;
 
 use Illuminate\Foundation\Http\FormRequest;
-
+use Illuminate\Validation\Rule;
 class VendorProductUpdateRequest extends FormRequest
 {
     /**
@@ -22,14 +22,14 @@ class VendorProductUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'image' => ['required', 'image', 'max:3000'],
+            'image' => ['nullable', 'image', 'max:3000'],
             'name' => ['required', 'max:200'],
             'category' => ['required', 'exists:categories,id'],
             'sub_category' => ['nullable'],
             'child_category' => ['nullable'],
             'brand' => ['required', 'exists:brands,id'],
             'price' => ['required', 'min:1', 'numeric'],
-            'offer_price' => ['required', 'min:1', 'numeric'],
+            'offer_price' => ['required_unless:offer_start_date,null'],
             'qty' => ['required', 'integer', 'min:1'],
             'video_link' => ['nullable', 'url'],
             'short_description' => ['required', 'max: 600'],

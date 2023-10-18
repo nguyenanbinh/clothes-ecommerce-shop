@@ -6,6 +6,7 @@ use App\DataTables\VendorProductVariantDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\ProductVariant;
+use App\Models\ProductVariantItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -113,10 +114,10 @@ class VendorProductVariantController extends Controller
             abort(404);
         }
 
-//        $variantItemCheck = ProductVariantItem::where('product_variant_id', $variant->id)->count();
-//        if($variantItemCheck > 0){
-//            return response(['status' => 'error', 'message' => 'This variant contain variant items in it delete the variant items first for delete this variant!']);
-//        }
+        $variantItemCheck = ProductVariantItem::where('product_variant_id', $variant->id)->count();
+        if($variantItemCheck > 0){
+            return response(['status' => 'error', 'message' => 'This variant contain variant items in it delete the variant items first for delete this variant!']);
+        }
         $variant->delete();
 
         return response(['status' => 'success', 'message' => 'Deleted Successfully!']);

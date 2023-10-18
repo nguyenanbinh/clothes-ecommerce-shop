@@ -132,9 +132,9 @@ class VendorProductController extends Controller
         $product->offer_price = $request->offer_price;
         $product->offer_start_date = $request->offer_start_date;
         $product->offer_end_date = $request->offer_end_date;
-        $product->product_type = $request->product_type;
+//        $product->product_type = $request->product_type;
         $product->status = $request->status;
-        $product->is_approved = $request->is_approved;
+//        $product->is_approved = $request->is_approved;
         $product->seo_title = $request->seo_title;
         $product->seo_description = $request->seo_description;
         $product->save();

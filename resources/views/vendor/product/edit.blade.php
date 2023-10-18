@@ -102,13 +102,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group wsus__input">
                                                 <label>Offer Start Date</label>
-                                                <input type="text" class="form-control datepicker" name="offer_start_date" value="{{$product->offer_start_date}}">
+                                                <input type="text" class="form-control datepicker" name="offer_start_date" value="{{$product->offer_start_date ?? ''}}">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group wsus__input">
                                                 <label>Offer End Date</label>
-                                                <input type="text" class="form-control datepicker" name="offer_end_date" value="{{$product->offer_end_date}}">
+                                                <input type="text" class="form-control datepicker" name="offer_end_date" value="{{$product->offer_end_date ?? ''}}">
                                             </div>
                                         </div>
                                     </div>

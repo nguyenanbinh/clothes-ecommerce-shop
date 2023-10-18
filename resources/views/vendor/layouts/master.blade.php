@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="{{asset('backend/assets/css/datatables.min.css')}}">
     <link rel="stylesheet" href="{{asset('backend/assets/modules/bootstrap-daterangepicker/daterangepicker.css')}}">
     <link rel="stylesheet" href="{{asset('backend/assets/modules/summernote/summernote-bs4.css')}}">
+    <link rel="stylesheet" href="{{asset('backend/assets/css/sweetalert2.min.css')}}">
 {{--    @if($settings->layout === 'RTL')--}}
 {{--        <link rel="stylesheet" href="{{asset('frontend/css/rtl.css')}}">--}}
 {{--    @endif--}}
@@ -116,6 +117,7 @@
 <script src="{{asset('backend/assets/modules/moment.min.js')}}"></script>
 <script src="{{asset('backend/assets/modules/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
 <script src="{{asset('backend/assets/modules/summernote/summernote-bs4.js')}}"></script>
+<script src="{{asset('backend/assets/js/sweetalert2.all.min.js')}}"></script>
 <!--main/custom js-->
 <script src="{{asset('frontend/js/main.js')}}"></script>
 
@@ -136,13 +138,15 @@
 
 </script>
 <script>
-    $('.datepicker').daterangepicker({
-        locale: {
-            format: 'YYYY-MM-DD'
-        },
-        singleDatePicker: true
-    });
+    // $('.datepicker').daterangepicker({
+    //     locale: {
+    //         format: 'YYYY-MM-DD'
+    //     },
+    //     singleDatePicker: true
+    // });
 </script>
+
+<!-- Dynamic Delete alart -->
 
 <script>
     $(document).ready(function(){
@@ -150,6 +154,48 @@
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
+        });
+
+        $('body').on('click', '.delete-item', function(event){
+            event.preventDefault();
+
+            let deleteUrl = $(this).attr('href');
+
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: 'DELETE',
+                        url: deleteUrl,
+                        success: function(data){
+                            if(data.status == 'success'){
+                                Swal.fire(
+                                    'Deleted!',
+                                    data.message,
+                                    'success'
+                                )
+                                window.location.reload();
+                            }else if (data.status == 'error'){
+                                Swal.fire(
+                                    'Cant Delete',
+                                    data.message,
+                                    'error'
+                                )
+                            }
+                        },
+                        error: function(xhr, status, error){
+                            console.log(error);
+                        }
+                    });
+                }
+            });
         });
     });
 </script>
