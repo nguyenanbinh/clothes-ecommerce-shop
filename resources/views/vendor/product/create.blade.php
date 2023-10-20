@@ -91,13 +91,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group wsus__input">
                                                 <label>Offer Start Date</label>
-                                                <input type="date" class="form-control datepicker" name="offer_start_date" value="{{old('offer_start_date')}}">
+                                                <input type="text" class="form-control datepicker" name="offer_start_date" value="{{old('offer_start_date')}}">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group wsus__input">
                                                 <label>Offer End Date</label>
-                                                <input type="date" class="form-control datepicker" name="offer_end_date" value="{{old('offer_end_date')}}">
+                                                <input type="text" class="form-control datepicker" name="offer_end_date" value="{{old('offer_end_date')}}">
                                             </div>
                                         </div>
                                     </div>
@@ -115,13 +115,13 @@
 
                                     <div class="form-group wsus__input">
                                         <label>Short Description</label>
-                                        <textarea name="short_description" class="form-control"></textarea>
+                                        <textarea name="short_description" class="form-control" value="{{old('short_description')}}"></textarea>
                                     </div>
 
 
                                     <div class="form-group wsus__input">
                                         <label>Long Description</label>
-                                        <textarea name="long_description" class="form-control summernote"></textarea>
+                                        <textarea name="long_description" class="form-control summernote" value="{{old('long_description')}}"></textarea>
                                     </div>
 
 

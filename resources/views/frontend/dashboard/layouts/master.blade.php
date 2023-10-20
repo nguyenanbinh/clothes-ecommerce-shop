@@ -109,7 +109,6 @@
 <!--classycountdown js-->
 <script src="{{asset('frontend/js/jquery.classycountdown.js')}}"></script>
 <script src="{{asset('frontend/js/toastr.min.js')}}"></script>
-@stack('js')
 
 <!--main/custom js-->
 <script src="{{asset('frontend/js/main.js')}}"></script>

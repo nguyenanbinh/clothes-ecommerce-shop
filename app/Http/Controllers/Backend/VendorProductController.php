@@ -72,7 +72,7 @@ class VendorProductController extends Controller
 
         toastr('Created Successfully!', 'success');
 
-        return redirect()->route('vendor.products.create');
+        return redirect()->route('vendor.products.index');
     }
     /**
      * Show the form for editing the specified resource.

@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{{asset('backend/assets/css/datatables.min.css')}}">
     <link rel="stylesheet" href="{{asset('backend/assets/css/bootstrap-iconpicker.min.css')}}">
     <link rel="stylesheet" href="{{asset('backend/assets/css/sweetalert2.min.css')}}">
+    <link rel="stylesheet" href="{{asset('backend/assets/modules/bootstrap-daterangepicker/daterangepicker.css')}}">
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{asset('backend/assets/css/style.css')}}">
@@ -82,6 +83,7 @@
 <script src="{{asset('backend/assets/js/datatables.min.js')}}"></script>
 <script src="{{asset('backend/assets/js/bootstrap-iconpicker.bundle.min.js')}}"></script>
 <script src="{{asset('backend/assets/js/sweetalert2.all.min.js')}}"></script>
+<script src="{{asset('backend/assets/modules/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
 
 <!-- Page Specific JS File -->
 <script src="{{asset('backend/assets/js/page/index-0.js')}}"></script>
@@ -100,6 +102,14 @@
     @endif
 </script>
 
+<script>
+    $('.datepicker').daterangepicker({
+        locale: {
+            format: 'YYYY-MM-DD'
+        },
+        singleDatePicker: true
+    });
+</script>
 <!-- Dynamic Delete alert -->
 
 <script>

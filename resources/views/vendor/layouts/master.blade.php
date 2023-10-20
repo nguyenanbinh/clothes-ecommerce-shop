@@ -138,12 +138,12 @@
 
 </script>
 <script>
-    // $('.datepicker').daterangepicker({
-    //     locale: {
-    //         format: 'YYYY-MM-DD'
-    //     },
-    //     singleDatePicker: true
-    // });
+    $('.datepicker').daterangepicker({
+        locale: {
+            format: 'YYYY-MM-DD'
+        },
+        singleDatePicker: true
+    });
 </script>
 
 <!-- Dynamic Delete alart -->
