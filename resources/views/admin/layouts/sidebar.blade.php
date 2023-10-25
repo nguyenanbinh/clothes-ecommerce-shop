@@ -95,7 +95,25 @@
                         <a class="nav-link" href="{{ route('admin.slider.index') }}">Slider</a>
                     </li>
                 </ul>
+            </li>
             {{--End Manage Website--}}
+
+            <li
+            class="dropdown {{ setActive([
+                'admin.settings.*',
+            ]) }}">
+            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-cog"></i>
+                <span>Setting Website</span></a>
+            <ul class="dropdown-menu">
+                <li class="{{ setActive(['admin.settings.*']) }}">
+                    <a class="nav-link" href="{{ route('admin.settings.index') }}">
+                        <i class="fas fa-wrench"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
         </ul>
 
     </aside>
